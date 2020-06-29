@@ -65,8 +65,8 @@ def superjobvacancy(key):
         response = requests.get(main_link + search_link, headers=header, params=params).text
         soup = bs(response, 'lxml')
 
-        with open('superjob_soup.html', 'w') as f:
-            f.write(str(soup))
+        #with open('superjob_soup.html', 'w') as f:
+        #    f.write(str(soup))
 
         vacancy_list = soup.find_all('div', {'class': 'iJCa5 f-test-vacancy-item _1fma_ _1JhPh _2gFpt _1znz6 _2nteL'})
         #    pprint(vacancy_list)
@@ -85,7 +85,6 @@ def superjobvacancy(key):
         try:
             next_button = soup.find('a',
                                     {'class': 'icMQ_ _1_Cht _3ze9n f-test-button-dalshe f-test-link-Dalshe'}).getText()
-            #        print(next_button)
             n += 1
         except:
             print(f'Всего занесенно {lnum} записей c superjob.ru')
