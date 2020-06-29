@@ -66,8 +66,8 @@ def hhvacancy(key):
         response = requests.get(main_link + search_link, headers=header, params=params).text
         soup = bs(response, 'lxml')
 
-        with open('hhsoup.html', 'w') as f:
-            f.write(str(soup))
+        #with open('hhsoup.html', 'w') as f:
+        #    f.write(str(soup))
 
         vacancy_list = soup.find_all('div', {'class': 'vacancy-serp-item__row vacancy-serp-item__row_header'})
         #   pprint(vacancy_list)
@@ -87,7 +87,6 @@ def hhvacancy(key):
         try:
             next_button = soup.find('a', {'class': 'bloko-button HH-Pager-Controls-Next HH-Pager-Control'}).getText()
             n += 1
-        #       break
         except:
             print(f'Всего занесенно {lnum} записей c hh.ru')
             break
