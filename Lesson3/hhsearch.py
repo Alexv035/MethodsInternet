@@ -81,14 +81,9 @@ def hhvacancy(key):
                 str(v.find('div', {'vacancy-serp-item__sidebar'}).getText()))
             vacancy['web-site'] = 'www.hh.ru'
             vacancy['keyword'] = search
-            #vacancy['data'] = search
-
-
 
             vacancy_data.append(vacancy)
             lnum += 1
-
-
 
         try:
             next_button = soup.find('a', {'class': 'bloko-button HH-Pager-Controls-Next HH-Pager-Control'}).getText()
