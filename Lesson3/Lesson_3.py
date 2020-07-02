@@ -14,16 +14,9 @@ def data_insert(data):
     for d in data:
         if vacancy.count({'vacancyId': d['vacancyId'], 'web-site': d['web-site']}) == 0:
             vacancy.insert_one(d)
-            print(d['vacancyId'])
+            #print(d['vacancyId'])
             n += 1
     print(f'Вставлено новых {n} записей')
-
-
-def data_insert_origin():
-    vacancy.delete_many({})
-    vacancy.insert_many(hhvacancy)
-    vacancy.insert_many(sjvacancy)
-
 
 key = input('Введите поисковый запрос на hh.ru и superjob.ru: ')
 
@@ -35,7 +28,7 @@ db = client['vacancys_db']
 
 vacancy = db.vacancys_db
 
-#data_insert_origin()
+#vacancy.delete_many({})
 
 data_insert(hhvacancy)
 data_insert(sjvacancy)
